@@ -32,17 +32,33 @@ npm run dev
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deployment to Vercel
+## Deployment to Netlify
 
-This app is optimized for easy deployment on Vercel:
+This app is optimized for easy deployment on Netlify:
+
+### Method 1: Netlify UI (Easiest - Recommended)
 
 1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Vercel will automatically detect Next.js and configure everything
-5. Click "Deploy" - that's it!
+2. Go to [netlify.com](https://netlify.com) and sign in (or create a free account)
+3. Click "Add new site" → "Import an existing project"
+4. Connect your GitHub account and select your repository
+5. Netlify will automatically detect Next.js and fill in the settings from `netlify.toml`:
+   - **Build command**: `npm run build` (auto-filled)
+   - **Publish directory**: `.next` (auto-filled)
+   - **Node version**: 18 (auto-filled)
+6. Click "Deploy site" - that's it! 
 
-The app will be live in seconds. No additional configuration needed.
+**The app will be live in about 2-3 minutes!** No additional configuration needed - the `netlify.toml` file handles everything automatically.
+
+### Method 2: Netlify CLI
+
+```bash
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod
+```
+
+The app is pre-configured with `netlify.toml`, so deployment is automatic!
 
 ## Build for Production
 
